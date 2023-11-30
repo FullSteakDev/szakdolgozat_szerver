@@ -6,4 +6,5 @@ module.exports = {
     SERVER_URL: process.env.SERVER_URL,
     CLIENT_URL: process.env.CLIENT_URL,
     SECRET: process.env.SECRET,
+    HOST_URL: process.env.HOST_URL
 }
