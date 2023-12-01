@@ -23,14 +23,14 @@ router.post('/reserve-travels/:name/:departure/:destination/:date/:price/:length
 router.delete('/remove-travel/:Id', authCustomer, removeTravels)
 
 //employee routes
-//router.post('/register-employees', registerValidation, validationMiddleware, registerEmployees)
+router.post('/register-employees', registerValidation, validationMiddleware, registerEmployees)
 router.post('/login-employees', loginValidationEmployee, validationMiddleware, loginEmployees)
 router.get('/protected-employees',authEmployee, protectedEmployee)
 router.get('/projects-employee', authEmployee, getProjectEmployee)
 router.put('/progress-employee', authEmployee, editProgressProjects);
 
 //management routes
-//router.post('/register-managers', registerValidation, validationMiddleware, registerManagers)
+router.post('/register-managers', registerValidation, validationMiddleware, registerManagers)
 router.post('/login-managers', loginValidationManager, validationMiddleware, loginManagers)
 router.get('/protected-managers',authManager, protectedManager)
 
