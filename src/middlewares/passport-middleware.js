@@ -16,11 +16,11 @@ const opts = {
 
 passport.use(
     'jwt-customer',
-    new Strategy(opts, async ({ id }, done) => {
+    new Strategy(opts, async ({ email }, done) => {
         try{
             const { rows } = await db.query(
-                'SELECT customer_id, email FROM customers WHERE customer_id = $1',
-                [id]
+                'SELECT customer_id, email FROM customers WHERE email = $1',
+                [email]
             )
 
             if (!rows.length) {
