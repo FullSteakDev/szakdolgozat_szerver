@@ -39,11 +39,11 @@ passport.use(
 
 passport.use(
     'jwt-employee',
-    new Strategy(opts, async ({ id }, done) => {
+    new Strategy(opts, async ({ email }, done) => {
         try{
             const { rows } = await db.query(
-                'SELECT employee_id, email FROM employee WHERE employee_id = $1',
-                [id]
+                'SELECT employee_id, email FROM employee WHERE email = $1',
+                [email]
             )
 
             if (!rows.length) {
@@ -62,11 +62,11 @@ passport.use(
 
 passport.use(
     'jwt-manager',
-    new Strategy(opts, async ({ id }, done) => {
+    new Strategy(opts, async ({ email }, done) => {
         try{
             const { rows } = await db.query(
-                'SELECT manager_id, email FROM management WHERE manager_id = $1',
-                [id]
+                'SELECT manager_id, email FROM management WHERE email = $1',
+                [email]
             )
 
                 if (!rows.length) {
